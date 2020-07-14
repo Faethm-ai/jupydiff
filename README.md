@@ -8,6 +8,15 @@ We want to make it easy for reviewers to see what has changed between versions o
 
 Right now, this requires the review to manually check the old and new files by downloading them and running tools like nbdime locally or in their AWS SageMaker notebooks instance
 
+## Useful references
+
+Knowledge of GitHub actions, Jupyter notebooks and git is essential to developing jupydiff. These resources may be helpful as a reference (but are not a prerequisite to begin)
+
+- [Intro to GitHub](https://lab.github.com/githubtraining/introduction-to-github) - covers using GitHub for essential git workflows including Pull Requests
+- [Github Actions hello world](https://lab.github.com/githubtraining/github-actions:-hello-world) - covers creating a basic GitHub Action from scratch
+- [GitHub API issuing comments](https://developer.github.com/v3/issues/comments/#create-an-issue-comment) - developer docs for issue comments
+- [Continuous Machine Learning project](https://github.com/iterative/cml) - CML is an example of an open source project that implements GitHub and GitLab actions for other tasks
+
 ## Stage 1 (internal usage)
 
 ### Configure GitHub action
