@@ -1,0 +1,79 @@
+on: 
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+name: Notebook Differ
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+     
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 
+        uses: actions/setup-python@v2
+        with:
+         python-version: 3.8
+       
+      - name: Set up Cache
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+         pip install --upgrade nbdime
+         
+      - name: Retrieving Previous Commit
+        run: git reset --soft HEAD~1
+
+      - name: Run Jupyter Notebook Diff
+        run: 
+         for f in *.ipynb; 
+         do nbdime diff --no-color -s $f >> output.txt;
+         done
+       
+      - name: Display Changes in Commit Comment
+        uses: actions/github-script@v1
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const fs = require('fs');
+            function getSha() {
+              if (context.eventName && context.eventName == "pull_request") {
+                return context.payload.pull_request.head.sha;
+              } else {
+                return context.sha;
+              }
+            }
+            async function run(data) {
+              try {
+                const sha = getSha();
+                await github.repos.createCommitComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  commit_sha: sha,
+                  body: data.length == 0 ? "No Changes" : "```diff \n" + data + " ```"
+                });
+              } catch (error) {
+                core.setFailed(error.message);
+              }
+            }  
+            await fs.readFile('output.txt', function read(err, data) {
+               if (err) {
+                 throw err;
+               }
+               run(data.toString());
+            });
+
+           
+          
