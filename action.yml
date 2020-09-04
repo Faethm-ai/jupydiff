@@ -42,7 +42,7 @@ jobs:
       - name: Display Changes in Commit Comment
         uses: actions/github-script@v1
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
+          #github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             const fs = require('fs');
             function getSha() {
