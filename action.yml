@@ -5,8 +5,8 @@ description: 'Diff Jupyter Notebooks in Repo'
 #     description: >
 #       Personal access token (PAT) used to fetch the repository.(https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
 
-
-using: "composite"
+runs:
+  using: "composite"
   steps: 
     - uses: actions/checkout@v2        #Clone your repo
       with:
