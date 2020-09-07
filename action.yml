@@ -14,4 +14,4 @@ inputs:
     description: 'Relative path of the file to comment on.'
 runs:
   using: 'node12'
-  main: 'index.js'
+  main: 'dist/index.js'
