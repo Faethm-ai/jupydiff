@@ -19,7 +19,7 @@ async function run(data) {
     core.setFailed(error.message);
   }
 }  
-async fs.readFile('output.txt', function read(err, data) {
+await fs.readFile('output.txt', function read(err, data) {
    if (err) {
      throw err;
    }
