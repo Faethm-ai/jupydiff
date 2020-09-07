@@ -11,7 +11,4 @@ inputs:
     description: 'The contents of the comment.'
     required: true
   path:
-    description: 'Relative path of the file to comment on.'
-runs:
-  using: 'node12'
-  main: 'dist/index.js'
+
