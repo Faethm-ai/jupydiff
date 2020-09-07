@@ -1,71 +1,17 @@
 name: 'jupydiff'
-description: 'Diff Jupyter Notebooks in Repo'
-# inputs:
-#   github-token:
-#     description: >
-#       Personal access token (PAT) used to fetch the repository.(https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets)
-
+description: 'Create a comment with diff info for a commit on .ipynb files'
+inputs:
+  token:
+    description: 'The GitHub authentication token'
+    default: ${{ github.token }}
+  repository:
+    description: 'The full name of the target repository.'
+    default: ${{ github.repository }}
+  body:
+    description: 'The contents of the comment.'
+    required: true
+  path:
+    description: 'Relative path of the file to comment on.'
 runs:
-  using: "composite"
-  steps: 
-    - uses: actions/checkout@v2        #Clone your repo
-      with:
-        fetch-depth: 0
-
-    - name: Set up Python               
-      uses: actions/setup-python@v2
-      with:
-      python-version: 3.8
-
-#         - name: Set up Cache               #Caching of nbdime as it takes longer to install than to fetch from cache
-#           uses: actions/cache@v2
-#           with:
-#             path: ~/.cache/pip
-#             key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-#             restore-keys: |
-#               ${{ runner.os }}-pip-
-    - name: Install dependencies
-      run: |
-      pip install --upgrade nbdime
-
-    - name: Retrieving Previous Commit
-      run: git reset --soft HEAD~1
-
-    - name: Run Jupyter Notebook Diff                      #Run nbdime diff on all jupyter notebook files
-      run: 
-      for f in *.ipynb; 
-      do nbdime diff --no-color -s $f >> output.txt;
-      done
-
-    - name: Display Changes in Commit Comment
-      uses: actions/github-script@v1
-      with:
-        github-token: {{ github.token }}
-        script: |
-          const fs = require('fs');
-          function getSha() {
-            if (context.eventName && context.eventName == "pull_request") {
-              return context.payload.pull_request.head.sha;
-            } else {
-              return context.sha;
-            }
-          }
-          async function run(data) {
-            try {
-              const sha = getSha();
-              await github.repos.createCommitComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                commit_sha: sha,
-                body: data.length == 0 ? "No Changes" : "```diff \n" + data + " ```"
-              });
-            } catch (error) {
-              core.setFailed(error.message);
-            }
-          }  
-          await fs.readFile('output.txt', function read(err, data) {
-            if (err) {
-              throw err;
-            }
-            run(data.toString());
-          });
+  using: 'node12'
+  main: 'index.js'
