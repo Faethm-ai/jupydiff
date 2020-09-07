@@ -41,6 +41,8 @@ jobs:
         uses: actions/setup-node@v1
       - run: npm install @actions/core
              npm install @actions/github
+      - name: npm build
+        run: npm run build
 
       - name: Display Changes in Commit Comment
         
