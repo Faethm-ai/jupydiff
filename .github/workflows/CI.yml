@@ -1,42 +1,53 @@
-on:            #chose trigger upon which the workflow will run(you can add custom ones if you want)
-  push:
-
-  pull_request:
-  
-name: JupyDiff
+on: push
+name: Notebook Differ
 jobs:
   build:
 
-    runs-on: ubuntu-latest               #specify what you want your workflow to run on, currently its running on the latest Ubuntu virtual environment
-    steps:                               #if you want to change it to a diffrent VM or local hosting check "https://docs.github.com/en/actions/hosting-your-own-runners" 
-                                                                                        #and "https://github.com/actions/virtual-environments"
-      - uses: actions/checkout@v2        #Clone your repo
+    runs-on: ubuntu-latest
+    steps:
+     
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
-      - name: Set up Python               
+      - name: Set up Python 
         uses: actions/setup-python@v2
         with:
          python-version: 3.8
-       
-      - name: Set up Cache               #Caching of nbdime as it takes longer to install than to fetch from cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+
       - name: Install dependencies
         run: |
          pip install --upgrade nbdime
-         
+         pip install nodejs
       - name: Retrieving Previous Commit
         run: git reset --soft HEAD~1
 
-      - name: Run Jupyter Notebook Diff                      #Run nbdime diff on all jupyter notebook files
+      - name: Run Jupyter Notebook Diff
         run: 
          for f in *.ipynb; 
          do nbdime diff --no-color -s $f >> output.txt;
          done
-      - name: Run comment
+       
+      - id: get-comment-body
+        run: |
+          body=$(cat output.txt)
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}" 
+          echo ::set-output name=body::$body
+          
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+      - run: npm install @actions/core
+             npm install @actions/github
+
+      - name: Display Changes in Commit Comment
+        
         uses: ./
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          body: |
+            ```diff
+            ${{ steps.get-comment-body.outputs.body }}
+            ```
