@@ -7,9 +7,7 @@ inputs:
   repository:
     description: 'The full name of the target repository.'
     default: ${{ github.repository }}
-  body:
-    description: 'The contents of the comment.'
-    required: true
   runs:
       using: 'docker'
       image: 'Dockerfile'
+      entrypoint: 'entrypoint.sh'
