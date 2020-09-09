@@ -1,73 +1,12 @@
-on:            #chose trigger upon which the workflow will run(you can add custom ones if you want)
+name: CI
+
+on:
   push:
 
-  pull_request:
-  
-name: JupyDiff
 jobs:
   build:
-
-    runs-on: ubuntu-latest               #specify what you want your workflow to run on, currently its running on the latest Ubuntu virtual environment
-    steps:                               #if you want to change it to a diffrent VM or local hosting check "https://docs.github.com/en/actions/hosting-your-own-runners" 
-                                                                                        #and "https://github.com/actions/virtual-environments"
-      - uses: actions/checkout@v2        #Clone your repo
-        with:
-          fetch-depth: 0
-
-      - name: Set up Python               
-        uses: actions/setup-python@v2
-        with:
-         python-version: 3.8
-       
-      - name: Set up Cache               #Caching of nbdime as it takes longer to install than to fetch from cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-      - name: Install dependencies
-        run: |
-         pip install --upgrade nbdime
-         
-      - name: Retrieving Previous Commit
-        run: git reset --soft HEAD~1
-
-      - name: Run Jupyter Notebook Diff                      #Run nbdime diff on all jupyter notebook files
-        run: 
-         for f in *.ipynb; 
-         do nbdime diff --no-color -s $f >> output.txt;
-         done
-       
-      - name: Display Changes in Commit Comment
-        uses: actions/github-script@v1
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const fs = require('fs');
-            function getSha() {
-              if (context.eventName && context.eventName == "pull_request") {
-                return context.payload.pull_request.head.sha;
-              } else {
-                return context.sha;
-              }
-            }
-            async function run(data) {
-              try {
-                const sha = getSha();
-                await github.repos.createCommitComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  commit_sha: sha,
-                  body: data.length == 0 ? "No Changes" : "```diff \n" + data + " ```"
-                });
-              } catch (error) {
-                core.setFailed(error.message);
-              }
-            }  
-            await fs.readFile('output.txt', function read(err, data) {
-               if (err) {
-                 throw err;
-               }
-               run(data.toString());
-            });
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        
+      - uses: blairhudson/jupydiff@v0
