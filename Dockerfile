@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM ubuntu:latest
+FROM alpine:3.10
 
 RUN pip install command python37
 RUN npm install
