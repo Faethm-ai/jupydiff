@@ -1,10 +1,8 @@
 # Container image that runs your code
 FROM ubuntu:20.04
 
-RUN apt-get update && apt-get install python
-RUN pip install command python37
-RUN npm install
-RUN pip install --upgrade nbdime
+RUN apt-get update \
+  && apt-get install -y 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY --from=builder /app/dist /jupydiff/dist/
