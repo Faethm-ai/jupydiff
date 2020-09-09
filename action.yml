@@ -7,7 +7,7 @@ inputs:
   repository:
     description: 'The full name of the target repository.'
     default: ${{ github.repository }}
-  runs:
-      using: 'docker'
-      image: 'Dockerfile'
-      entrypoint: 'entrypoint.sh'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  entrypoint: 'entrypoint.sh'
