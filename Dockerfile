@@ -1,7 +1,8 @@
 # Container image that runs your code
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install python
+RUN apt-get update \
+  && apt-get install -y 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 
