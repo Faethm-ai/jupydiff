@@ -10,6 +10,6 @@ inputs:
   body:
     description: 'The contents of the comment.'
     required: true
-  run:
+  runs:
       using: 'docker'
       image: 'Dockerfile'
