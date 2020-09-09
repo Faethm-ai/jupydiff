@@ -1,11 +1,8 @@
 # Container image that runs your code
 FROM ubuntu:latest
 
-RUN apt-get update \
-  && apt-get install -y 
-RUN pip install command python37
-RUN npm install
-RUN pip install --upgrade nbdime
+RUN apt-get update && apt-get install python
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 
 
