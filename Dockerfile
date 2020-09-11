@@ -3,7 +3,7 @@ FROM python:3.7-slim
 
 RUN pip install nbdime==2.0.0
 RUN pip install rhino
-RUN apt-get install git
+RUN apt install git-all
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 
