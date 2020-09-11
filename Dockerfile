@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM python:3.7
+FROM python:3.7-slim
 
 RUN pip install nbdime==2.0.0
 
