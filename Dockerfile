@@ -4,6 +4,7 @@ FROM ubuntu:latest
 RUN apt-get update \
   && apt-get install -y 
 RUN apt-get install sudo
+RUN sudo apt-get install -y apt-utils
 RUN curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
 RUN sudo apt-get install -y nodejs
 RUN sudo apt-get install -y build-essential
