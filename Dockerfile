@@ -1,9 +1,8 @@
 # Container image that runs your code
-FROM ubuntu:latest
+FROM python:3.7
 
-RUN apt-get update \
-     && apt-get install -y \
-         python3-pip
+RUN pip install nbdime==2.0.0
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
