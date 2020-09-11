@@ -12,6 +12,6 @@ RUN apt-get update && apt-get install -y git
 # Code file to execute when the docker container starts up (`entrypoint.sh`)asd
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-ADD comment.js blairhudson/jupydiff/
+ADD comment.js ./
 
 CMD /entrypoint.sh
