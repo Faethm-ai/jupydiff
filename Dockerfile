@@ -11,5 +11,5 @@ RUN apt-get update && apt-get install -y git
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 ADD comment.js ./
-
+RUN pip show -f rhino
 CMD /entrypoint.sh
