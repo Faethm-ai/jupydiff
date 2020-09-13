@@ -4,5 +4,5 @@ do nbdime diff --no-color -s $f >> output.txt;
 done
 
 PATH=$PATH:/usr/local/lib/python3.7/site-packages
-echo $PATH
+ls /usr/local/lib/python3.7/site-packages
 rhino blairhudson/jupydiff/comment.js
