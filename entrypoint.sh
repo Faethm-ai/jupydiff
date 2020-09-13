@@ -4,3 +4,4 @@ do nbdime diff --no-color -s $f >> output.txt;
 done
 
 rhino blairhudson/jupydiff/comment.js
+PATH=$PATH:$HOME/.local/bin
