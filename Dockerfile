@@ -14,7 +14,5 @@ ENV PATH "$PATH:/usr/local/lib/python3.7/site-packages"
 # Code file to execute when the docker container starts up (`entrypoint.sh`)asd
 COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
-COPY comment.js ./
-RUN chmod +x /comment.js
-RUN /bin/bash -c "source blairhudson/jupydiff/enterypoint.sh"
-CMD /comment.sh
+
+CMD /entrypoint.sh
