@@ -7,4 +7,4 @@ done
 PATH=$PATH:/usr/local/lib/python3.7/site-packages
 echo $PATH
 apt-get -y install nodejs
-rhino ./comment.js
+node ./comment.js
