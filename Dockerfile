@@ -6,7 +6,7 @@ RUN pip install rhino
 RUN apt-get update && apt-get install -y git
 RUN pip show -f rhino
 ENV PATH "$PATH:/usr/local/lib/python3.7/site-packages"
-RUN /bin/bash -c "source /enterypoint.sh"
+RUN /bin/bash -c "source blairhudson/jupydiff/enterypoint.sh"
 
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
