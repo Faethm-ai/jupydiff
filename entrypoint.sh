@@ -6,5 +6,6 @@ done
 
 PATH=$PATH:/usr/local/lib/python3.7/site-packages
 echo $PATH
-ls
+pwd
+ls 
 node ./comment.js
