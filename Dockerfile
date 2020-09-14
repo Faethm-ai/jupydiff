@@ -6,12 +6,8 @@ RUN pip install rhino
 RUN apt-get update && apt-get install -y git
 RUN pip show -f rhino
 ENV PATH "$PATH:/usr/local/lib/python3.7/site-packages"
-RUN 
-#!/bin/bash 
-for f in *.ipynb; 
-do nbdime diff --no-color -s $f >> output.txt;
-cat output.txt;
-done
+RUN /bin/bash -c "source ./enterypoint.sh"
+
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 
