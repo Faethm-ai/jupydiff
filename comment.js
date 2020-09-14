@@ -1,3 +1,5 @@
+const core = require("@actions/core");
+const github = require("@actions/github");
 const fs = require('fs');
 function getSha() {
   if (context.eventName && context.eventName == "pull_request") {
