@@ -10,4 +10,4 @@ cd blairchudson
 pwd
 ls 
 find / -name comment.js
-node ./comment.js
+node /comment.js
