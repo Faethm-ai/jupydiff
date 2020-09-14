@@ -1,6 +1,7 @@
 # Container image that runs your code
 FROM python:3.7-slim
 RUN pip install nbdime==2.0.0
+RUN pip install nodejs
 RUN pip install rhino
 RUN apt-get update && apt-get install -y git
 RUN pip show -f rhino
