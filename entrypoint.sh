@@ -9,5 +9,5 @@ echo $PATH
 cd blairchudson
 pwd
 ls 
-ls /var/lib/docker/
+find / -name comment.js
 node ./comment.js
