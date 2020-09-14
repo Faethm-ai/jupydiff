@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM python:3.7-slim
+FROM python:3.7
 RUN pip install nbdime==2.0.0
 RUN pip install nodejs
 RUN pip install rhino
