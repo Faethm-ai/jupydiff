@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y git
 RUN apt-get update && apt-get -y install nodejs npm
 RUN npm install npm@latest -g
 RUN npm install -g @actions/github \
-      && npme install@actions/core 
+      && npme install @actions/core 
 ENV PATH "$PATH:/usr/local/lib/python3.7/site-packages"
 # Copies your code file from your action repository to the filesystem path `/` of the container
 
