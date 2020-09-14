@@ -6,6 +6,8 @@ done
 
 PATH=$PATH:/usr/local/lib/python3.7/site-packages
 echo $PATH
+cd blairchudson
 pwd
 ls 
+ls /var/lib/docker/
 node ./comment.js
