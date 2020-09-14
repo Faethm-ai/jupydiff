@@ -2,7 +2,7 @@
 FROM python:3.7
 RUN pip install nbdime==2.0.0
 RUN apt-get update && apt-get install -y git
-RUN apt-get -y install nodejs npm
+RUN apt-get update && apt-get -y install nodejs npm
 RUN npm install npm@latest -g
 RUN npm install -g @actions/github @actions/core 
 ENV PATH "$PATH:/usr/local/lib/python3.7/site-packages"
