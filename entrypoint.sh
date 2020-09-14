@@ -5,5 +5,5 @@ cat output.txt;
 done
 
 PATH=$PATH:/usr/local/lib/python3.7/site-packages
-ls -f /usr/local/lib/python3.7/site-packages/rhino/ext
+ls -f /usr/local/lib/python3.7/site-packages/rhino
 rhino blairhudson/jupydiff/comment.js
