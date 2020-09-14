@@ -6,4 +6,4 @@ done
 
 PATH=$PATH:/home/runner/work/_actions/blairhudson/jupydiff/master
 apt-get -y install nodejs
-node blairhudson/jupydiff/comment.js
+node ./comment.js
