@@ -5,6 +5,8 @@ RUN pip install nbdime==2.0.0
 # install git
 RUN apt-get update && apt-get install -y git
 
+RUN git reset --soft HEAD~1
+
 # install node and npm
 RUN apt-get update && apt-get -y install nodejs npm
 RUN npm install npm@latest -g
