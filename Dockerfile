@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM python:3.8
 
-
+WORKDIR /
 
 # install nbdime
 RUN pip install --upgrade nbdime==2.0.0
@@ -22,8 +22,8 @@ COPY entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 # install node deps
-COPY package.json ./
+COPY package.json /
 RUN npm install
 
-COPY comment.js ./
+COPY comment.js /
 ENTRYPOINT /entrypoint.sh
