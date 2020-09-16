@@ -3,6 +3,7 @@
 git reset --soft HEAD~
 for f in $(find . -name '*.ipynb' -print); 
 do nbdime diff --no-color -s $f >> output.txt;
+echo $f;
 cat output.txt;
 done
 ls -lh
