@@ -6,7 +6,7 @@ WORKDIR  /
 RUN pip install --upgrade nbdime==2.0.0
 
 # install git
-RUN apt-get update && apt-get install -g git
+RUN apt-get update && apt-get install -y git
 
 
 # install node and npm
