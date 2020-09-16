@@ -6,5 +6,4 @@ done
 ls -l
 
 # write a comment to github
-npm run
 cd / && npm run
