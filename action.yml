@@ -8,6 +8,5 @@ inputs:
     description: 'The full name of the target repository.'
     default: ${{ github.repository }}
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-
+  using: 'node12'
+  main: 'comment.js'
