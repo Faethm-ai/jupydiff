@@ -1,8 +1,6 @@
 # Container image that runs your code
 FROM python:3.8
 
-WORKDIR  /home/runner/work/_temp/_github_home
-
 WORKDIR  /
 
 # install nbdime
