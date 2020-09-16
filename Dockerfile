@@ -26,4 +26,4 @@ COPY package.json /
 RUN npm install
 
 COPY comment.js /
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
