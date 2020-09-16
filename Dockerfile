@@ -1,6 +1,10 @@
 # Container image that runs your code
 FROM python:3.8
-RUN pip install nbdime==2.0.0
+
+WORKDIR /github/workspace
+
+# install nbdime
+RUN pip install --upgrade nbdime==2.0.0
 
 # install git
 RUN apt-get update && apt-get install -y git
@@ -22,4 +26,4 @@ COPY package.json ./
 RUN npm install
 
 COPY comment.js ./
-CMD /entrypoint.sh
+ENTRYPOINT /entrypoint.sh
