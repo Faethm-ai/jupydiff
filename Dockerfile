@@ -6,11 +6,11 @@ WORKDIR  /
 RUN pip install --upgrade nbdime==2.0.0
 
 # install git
-RUN apt-get update && apt-get install -y git
+RUN apt-get update && apt-get install -g git
 
 
 # install node and npm
-RUN apt-get update && apt-get -y install nodejs npm
+RUN apt-get update && apt-get -g install nodejs npm
 RUN npm install npm@latest -g
 
 # ENV PATH "$PATH:/usr/local/lib/python3.7/site-packages"
