@@ -1,7 +1,7 @@
 # Container image that runs your code
 FROM python:3.8
 
-WORKDIR /
+WORKDIR  /home/runner/work/_temp/_github_home
 
 # install nbdime
 RUN pip install --upgrade nbdime==2.0.0
