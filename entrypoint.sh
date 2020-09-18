@@ -9,4 +9,4 @@ cat output.txt
 
 # write a comment to github
 cd / && npm run
-npm comment.js
+node comment.js
