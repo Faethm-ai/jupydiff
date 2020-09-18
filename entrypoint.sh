@@ -5,7 +5,7 @@ set -x
  
 
 
-nbdiff HEAD^ HEAD >> output.txt
+nbdine diff HEAD^ HEAD >> output.txt
 
 
 
