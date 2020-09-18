@@ -8,4 +8,5 @@ ls -lh
 cat output.txt
 
 # write a comment to github
-cd / && npm run comment.js
+cd / && npm run
+npm comment.js
