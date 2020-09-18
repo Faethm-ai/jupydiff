@@ -4,8 +4,8 @@ cd .
 # git reset --soft HEAD@{1}; 
 git log
 for f in $(find . -name '*.ipynb' -print); 
-do nbdiff --no-color -s $f >> output.txt;
-nbdiff --no-color -s $f
+do nbdime diff --no-color -s $f >> output.txt;
+nbdime diff --no-color -s $f
 echo $f;
 cat output.txt;
 done
