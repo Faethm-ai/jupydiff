@@ -9,4 +9,5 @@ cat output.txt
 
 # write a comment to github
 npm run
-node $(find / -name 'comment.js' -print)
+cd /usr/local/lib/python3.8/site-packages/
+node /comment.js
