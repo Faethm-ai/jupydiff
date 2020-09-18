@@ -1,6 +1,7 @@
 #!/bin/bash
 cd .
 # generate diffs
+set -x
 git reset --soft HEAD@{2}; 
 git log
 for f in $(find . -name '*.ipynb' -print); 
