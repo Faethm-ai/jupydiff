@@ -1,5 +1,5 @@
 #!/bin/bash
-cd .
+
 # generate diffs
 set -x
  
@@ -8,5 +8,5 @@ ls -lh
 cat output.txt
 
 # write a comment to github
-cd / && npm run
+npm run
 node comment.js
