@@ -10,14 +10,13 @@ function getSha() {
   }
 }
 
-async function run() {
+async function run(data) {
   try {
     const inputs = {
       token: core.getInput("token"),
       repository: core.getInput("repository"),
       sha: core.getInput("sha"),
       body: core.getInput("body"),
-      path: core.getInput("path"),
     };
     core.debug(`Inputs: ${inspect(inputs)}`);
 
@@ -32,13 +31,16 @@ async function run() {
       owner: owner,
       repo: repo,
       commit_sha: sha,
-      body: "```diff \n" + output.txt + "\n ```",
-      path: inputs.path,
+      body: data.length == 0 ? "No Changes" : "```diff \n" + data + "\n ```"
     });
   } catch (error) {
     core.debug(inspect(error));
     core.setFailed(error.message);
   }
 }
-
-run();
+fs.readFile('output.txt', function read(err, data) {
+   if (err) {
+     throw err;
+   }
+   run(data.toString());
+});
