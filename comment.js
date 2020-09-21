@@ -18,7 +18,6 @@ async function run() {
       sha: core.getInput("sha"),
       body: core.getInput("body"),
       path: core.getInput("path"),
-      position: core.getInput("position"),
     };
     core.debug(`Inputs: ${inspect(inputs)}`);
 
@@ -33,9 +32,8 @@ async function run() {
       owner: owner,
       repo: repo,
       commit_sha: sha,
-      body: inputs.body,
+      body: "```diff \n" + "output.txt" + " ```",
       path: inputs.path,
-      position: inputs.position
     });
   } catch (error) {
     core.debug(inspect(error));
