@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # generate diffs
-cd pwd
+# cd pwd
  
 nbdime diff --no-color -s HEAD^ HEAD >> output.txt
 ls -lh
