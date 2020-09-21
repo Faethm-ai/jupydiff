@@ -12,7 +12,7 @@ function getSha() {
 async function run(data) {
   try {
     const sha = getSha();
-    const octokit = github.getOctokit(inputs.token);
+    const octokit = github.getOctokit();
     await octokit.repos.createCommitComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
