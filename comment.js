@@ -1,7 +1,7 @@
 const { inspect } = require("util");
 const core = require("@actions/core");
 const github = require("@actions/github");
-
+const fs = require('fs');
 function getSha() {
   if (github.context.eventName == "pull_request") {
     return github.context.payload.pull_request.head.sha;
