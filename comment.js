@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const github = require('@actions/github-script');
 const context = github.context;
 const fs = require('fs');
 function getSha() {
