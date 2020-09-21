@@ -1,5 +1,5 @@
 const core = require('@actions/core');
-const github = require('@actions/github-script@v3');
+const github = require('@actions/github');
 const context = github.context;
 const fs = require('fs');
 function getSha() {
@@ -12,7 +12,8 @@ function getSha() {
 async function run(data) {
   try {
     const sha = getSha();
-    await github.repos.createCommitComment({
+    const octokit = github.getOctokit(inputs.token);
+    await octokit.repos.createCommitComment({
       owner: context.repo.owner,
       repo: context.repo.repo,
       commit_sha: sha,
