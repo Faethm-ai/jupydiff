@@ -32,7 +32,7 @@ async function run() {
       owner: owner,
       repo: repo,
       commit_sha: sha,
-      body: "```diff \n" + "output.txt" + "\n ```",
+      body: "```diff \n" + output.txt + "\n ```",
       path: inputs.path,
     });
   } catch (error) {
