@@ -7,6 +7,6 @@ nbdime diff --no-color -s HEAD^ HEAD >> output.txt
 #mv output.txt /usr/local/lib/python3.8/site-packages/
 
 # write a comment to github
-npm run
+#npm run
 #cd /usr/local/lib/python3.8/site-packages/
-#node /comment.js
+node /comment.js
