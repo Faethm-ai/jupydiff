@@ -2,6 +2,7 @@ const { inspect } = require("util");
 const core = require("@actions/core");
 const github = require("@actions/github");
 const fs = require('fs');
+
 function getSha() {
   if (github.context.eventName == "pull_request") {
     return github.context.payload.pull_request.head.sha;
@@ -21,8 +22,8 @@ async function run(data) {
     core.debug(`Inputs: ${inspect(inputs)}`);
 
     const [owner, repo] = inputs.repository.split("/");
-
     const sha = inputs.sha ? inputs.sha : getSha();
+   
     core.debug(`SHA: ${sha}`);
 
     const octokit = github.getOctokit(inputs.token);
@@ -38,6 +39,7 @@ async function run(data) {
     core.setFailed(error.message);
   }
 }
+
 fs.readFile('output.txt', function read(err, data) {
    if (err) {
      throw err;
