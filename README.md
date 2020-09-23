@@ -27,7 +27,7 @@ Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 0` 
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: 0
         
       - name: Run jupydiff
         uses: Faethm-ai/jupydiff@master
