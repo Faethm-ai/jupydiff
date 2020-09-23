@@ -4,7 +4,7 @@
 
 -----------------
 
-# Faethm jupydiff Docker Action for GitHub Actions
+# jupydiff Docker Action for GitHub Actions
 Automated differ for Jupyter Notebooks that enables a quick comparison of changes with the previous HEAD commit using GitHub authorised Actions and dependencies.
 
 ## Table of contents
