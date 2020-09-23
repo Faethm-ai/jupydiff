@@ -5,17 +5,34 @@
 -----------------
 
 # Faethm jupydiff Docker Action for GitHub Actions
-Differ for Jupyter Notebooks that enables a quick comparison of changes with the previous HEAD commit usinng GitHub authorised Actions and dependencies to deter man-in-the-middle attacks.
+Automated differ for Jupyter Notebooks that enables a quick comparison of changes with the previous HEAD commit using GitHub authorised Actions and dependencies.
+
 ## Table of contents
 * [General info](#general-info)
 * [Setup](#setup)
 * [Dependencies](#dependencies)
 
 ## General info
-jupydiff was created out of the need to save time during the process of code auditing and to ease the review process for people working with Jupyter Notebooks. Previously the options to diff Jupyter Notebooks was to clone your repo locally, download/install nbdime diff, run it through a Shell UI or compare changes of the raw `.ipynb` in code editors like Visual Studio Code and worst case senario do it by manually.
+jupydiff was created out of the need to save time during code auditing and to ease the review process for people working with Jupyter Notebooks. Previously the options to diff Jupyter Notebooks was to clone your repo locally, download/install nbdime diff, run it through a Shell UI or compare changes of the raw `.ipynb` in code editors like Visual Studio Code and worst case senario do it by manually.
 
-## Setup
-jupydiff works by simply adding the main.yml file into your GitHub repo, and every time the workflow is tiggered, the changes will be printed in the commit comment including pull request merges.
+## Usage
+We give you the option of deploying jupydiff in two diffrent configurations, one being a docker action, two being a local yaml workflow.
+### Action
+Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 2`. Call `Faethm-ai/jupydiff` i
+
+```yaml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+        
+      - name: Run jupydiff
+        uses: Faethm-ai/jupydiff@master
+```
+
+Get jupydiff working by simply adding the main.yml file into your GitHub repo, and every time the workflow is tiggered, the changes will be printed in the commit comment including pull request merges.
 
 ## Dependencies
 Another reason Jupyter Differ was created in its current form was to mitigate risk of man-in-the-middle attacks where maintainers of actions are able to manipulate dependencies and intercept data being passed through their actions. This led to only GitHub verified dependencies being used and Octokit. The list of dependencies is as follows:
