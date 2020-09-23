@@ -11,6 +11,7 @@ Automated differ for Jupyter Notebooks that enables a quick comparison of change
 * [General info](#general-info)
 * [Usage](#Usage)
 * [Dependencies](#dependencies)
+* [License](#license)
 
 ## General info
 jupydiff was created out of the need to save time during code auditing and to ease the review process for people working with Jupyter Notebooks. Previously the options to diff Jupyter Notebooks was to clone your repo locally, download/install nbdime diff, run it through a Shell UI or compare changes of the raw `.ipynb` in code editors like Visual Studio Code and worst case scenario do it by manually.
@@ -41,3 +42,5 @@ Another reason Jupyter Differ was created in its current form was to mitigate ri
 * [action/cache](https://github.com/actions/cache)
 * [action/github-script](https://github.com/actions/github-script)
 
+## License
+jupydiff is made available under the [MIT license](LICENSE)
