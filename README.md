@@ -19,7 +19,7 @@ jupydiff was created out of the need to save time during code auditing and to ea
 ## Usage
 We give you the option of deploying jupydiff in two different configurations, one being a docker action, two being a local yaml workflow.
 ### Option 1 - Action
-Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 0` or `2` (dont put 1). Insert `Faethm-ai/jupydiff` into your workflow as shown below and you’re all set. Take note – this action can take up to 2 minutes to run, due to dependency installations.
+Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 0` or `2` (don't put 1). Insert `Faethm-ai/jupydiff` into your workflow as shown below and you’re all set. Take note – this action can take up to 2 minutes to run, due to dependency installations.
 
 ```yaml
 name: jupydiff demo
