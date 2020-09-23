@@ -33,7 +33,7 @@ Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 2`.
         uses: Faethm-ai/jupydiff@master
 ```
 ### Option 2 - Workflow
-Get jupydiff working by simply adding the main.yml file into your GitHub repo `/workflow` directory, and every time the workflow is triggered by push or pull request, the changes will be printed in the commit comment including pull request merges.
+Get jupydiff working by simply adding the following main.yml file into your GitHub repo `/workflow` directory, and every time the workflow is triggered by push or pull request, the changes will be printed in the commit comment including pull request merges.
 ```yaml
 on:            #chose trigger upon which the workflow will run(you can add custom ones if you want)
   push:
