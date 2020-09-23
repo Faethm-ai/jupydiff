@@ -22,10 +22,21 @@ We give you the option of deploying jupydiff in two different configurations, on
 Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 0` or `2` (dont put 1). Insert `Faethm-ai/jupydiff` into your workflow as shown below and you’re all set. Take note – this action can take up to 2 minutes to run, due to dependency installations.
 
 ```yaml
+name: jupydiff demo
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
         
