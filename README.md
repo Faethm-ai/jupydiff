@@ -43,4 +43,4 @@ Another reason Jupyter Differ was created in its current form was to mitigate ri
 * [action/github-script](https://github.com/actions/github-script)
 
 ## License
-jupydiff is made available under the [MIT](LICENSE)
+jupydiff is licensed under the terms of the [MIT](LICENSE)
