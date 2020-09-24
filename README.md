@@ -7,6 +7,10 @@
 # jupydiff Docker Action for GitHub Actions
 Automated diff for Jupyter notebooks that enables a quick comparison of changes with the previous HEAD commit using GitHub authorised Actions and dependencies.
 
+<div align="center">
+  <img src="output.PNG">
+</div>
+
 ## Table of contents
 * [General info](#general-info)
 * [Usage](#Usage)
