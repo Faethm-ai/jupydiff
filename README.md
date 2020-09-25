@@ -15,6 +15,7 @@ Automated diff for Jupyter notebooks that enables a quick comparison of changes 
 * [General info](#general-info)
 * [Usage](#Usage)
 * [Dependencies](#dependencies)
+* [Contributors] (#contributors)
 * [License](#license)
 
 ## General info
@@ -23,7 +24,7 @@ jupydiff was created out of the need to save time during code auditing and to ea
 ## Usage
 We give you the option of deploying jupydiff in two different configurations, one being a docker action, two being a local yaml workflow.
 ### Option 1 - Action
-Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 0` or `2` (don't put 1). Insert `Faethm-ai/jupydiff` into your workflow as shown below and you’re all set. Take note – this action can take up to 2 minutes to run, due to dependency installations.
+Add `action/checkout` to your workflow `.yml` file and set the `fetch-depth: 0` or `2` (0 fetches all github commit history, 1 fetches current commit so dont use it, 2 fetches current and previous commit). Insert `Faethm-ai/jupydiff` into your workflow as shown below and you’re all set. Take note – this action can take up to 2 minutes to run, due to dependency installations.
 
 ```yaml
 name: jupydiff demo
@@ -48,7 +49,7 @@ jobs:
         uses: Faethm-ai/jupydiff@master
 ```
 ### Option 2 - Workflow
-Get jupydiff working by simply adding the following main.yml file into your GitHub repo `/workflow` directory, and every time the workflow is triggered by push or pull request, the changes will be printed in the commit comment including pull request merges. The reason this option is offered, is due to being able to run the jupydiff in 20-30 seconds, four times faster than the action. Also, more secure, as you will be in control of dependencies and code. Again, take note – you will be responsible for updating code and patching vulnerabilities yourself should any be discovered.
+Get jupydiff working by simply adding the following main.yml file into your GitHub repo `/workflow` directory, and every time the workflow is triggered by push or pull request, the changes will be printed in the commit comment including pull request merges. The reason this option is option is included, is this allows jupydiff to run in 20-30 seconds, four times faster than the action. Also, more secure, as you will be in control of dependencies and code. Again, take note – you will be responsible for updating code and patching vulnerabilities yourself should any be discovered.
 ```yaml
 on:            #chose trigger upon which the workflow will run(you can add custom ones if you want)
   push:
@@ -130,6 +131,9 @@ Inspect how jupydiff action works in your workflow
 <div align="center">
   <img src="actionlog.PNG">
 </div>
+
+## Contributors
+TBD
 
 ## Dependencies
 Another reason Jupyter Differ was created in its current form was to mitigate risk of man-in-the-middle attacks where maintainers of actions are able to manipulate dependencies and intercept data being passed through their actions. This led to only GitHub verified dependencies being used and Octokit. The list of dependencies is as follows:
