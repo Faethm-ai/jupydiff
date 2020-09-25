@@ -49,7 +49,7 @@ jobs:
         uses: Faethm-ai/jupydiff@master
 ```
 ### Option 2 - Workflow
-Get jupydiff working by simply adding the following main.yml file into your GitHub repo `/workflow` directory, and every time the workflow is triggered by push or pull request, the changes will be printed in the commit comment including pull request merges. The reason this option is option is included, is this allows jupydiff to run in 20-30 seconds, four times faster than the action. Also, more secure, as you will be in control of dependencies and code. Again, take note – you will be responsible for updating code and patching vulnerabilities yourself should any be discovered.
+Get jupydiff working by simply adding the following main.yml file into your GitHub repo `/workflow` directory, and every time the workflow is triggered by push or pull request, the changes will be printed in the commit comment including pull request merges. The reason this option is option is included, is this allows jupydiff to run in 20-30 seconds, four times faster than the action. Also, more secure, as you will be in control of dependencies and code.
 ```yaml
 on:            #chose trigger upon which the workflow will run(you can add custom ones if you want)
   push:
