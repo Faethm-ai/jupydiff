@@ -18,7 +18,7 @@ Automated diff for Jupyter notebooks that enables a quick comparison of changes 
 * [License](#license)
 
 ## General info
-jupydiff was created out of the need to save time during code auditing and to ease the review process for people working with Jupyter Notebooks. Previously the options to diff Jupyter Notebooks was to clone your repo locally, download/install nbdime diff, run it through a Shell UI or compare changes of the raw `.ipynb` in code editors like Visual Studio Code and worst case scenario do it by manually.
+jupydiff was created out of the need to save time during code auditing and to ease the review process for people working with Jupyter notebooks. Previously the options to diff Jupyter Notebooks was to clone your repo locally, download/install nbdime diff, run it through a Shell UI or compare changes of the raw `.ipynb` in code editors like Visual Studio Code and worst case scenario do it by manually.
 
 ## Usage
 We give you the option of deploying jupydiff in two different configurations, one being a docker action, two being a local yaml workflow.
@@ -59,9 +59,9 @@ name: jupydiff
 jobs:
   build:
 
-    runs-on: ubuntu-latest               #specify what you want your workflow to run on, currently its running on the latest Ubuntu virtual environment
+    runs-on: ubuntu-latest               #specify what VM you want your workflow to run on
     steps:                               #if you want to change it to a diffrent VM or local hosting check "https://docs.github.com/en/actions/hosting-your-own-runners" 
-                                                                                        #and "https://github.com/actions/virtual-environments"
+                                                                                      
       - uses: actions/checkout@v2        #Clone your repo
         with:
           fetch-depth: 0
@@ -125,6 +125,11 @@ jobs:
                run(data.toString());
             });
 ```
+### Action Log
+Inspect how jupydiff action works in your workflow
+<div align="center">
+  <img src="actionlog.PNG">
+</div>
 
 ## Dependencies
 Another reason Jupyter Differ was created in its current form was to mitigate risk of man-in-the-middle attacks where maintainers of actions are able to manipulate dependencies and intercept data being passed through their actions. This led to only GitHub verified dependencies being used and Octokit. The list of dependencies is as follows:
