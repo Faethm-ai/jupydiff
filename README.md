@@ -15,7 +15,7 @@ Automated diff for Jupyter notebooks that enables a quick comparison of changes 
 * [General info](#general-info)
 * [Usage](#Usage)
 * [Dependencies](#dependencies)
-* [Contributors] (#contributors)
+* [Contributors](#contributors)
 * [License](#license)
 
 ## General info
