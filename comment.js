@@ -19,12 +19,10 @@ async function run(data) {
       sha: core.getInput("sha"),
       body: core.getInput("body"),
     };
-    core.debug(`Inputs: ${inspect(inputs)}`);
 
     const [owner, repo] = inputs.repository.split("/");
     const sha = inputs.sha ? inputs.sha : getSha();
    
-    core.debug(`SHA: ${sha}`);
 
     const octokit = github.getOctokit(inputs.token);
 
@@ -34,10 +32,7 @@ async function run(data) {
       commit_sha: sha,
       body: data.length == 0 ? "No Changes" : "```diff \n" + data + "\n ```"
     });
-  } catch (error) {
-    core.debug(inspect(error));
-    core.setFailed(error.message);
-  }
+  } 
 }
 
 fs.readFile('output.txt', function read(err, data) {
