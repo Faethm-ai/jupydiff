@@ -10,8 +10,8 @@
 </div>
 
 ## Table of contents
-* [Why use jupydiff](#Why use jupydiff)
-* [How to use jupydiff](#How to use jupydiff)
+* [Why use jupydiff](#Why_use_jupydiff)
+* [How to use jupydiff](#How_to_use_jupydiff)
 * [Dependencies](#Dependencies)
 * [License](#License)
 * [Contributors](#Contributors)
@@ -57,4 +57,4 @@ Important notes:
 **jupydiff** is licensed under the [MIT license](LICENSE).
 
 ## Contributors
-**jupydiff** has been developed and used by data scientists and engineers at [Faethm AI](https://faethm.ai). The original project was authored by [Mikhail Thornill](https://github.com/MikhailTH) and [Blair Hudson](https://github.com/blairhudson).
+**jupydiff** has been developed and used by data scientists and engineers at [Faethm AI](https://faethm.ai). The original project was authored by [Mikhail Thornhill](https://github.com/MikhailTH) and [Blair Hudson](https://github.com/blairhudson).
