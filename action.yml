@@ -1,5 +1,6 @@
 name: 'jupydiff'
 description: 'Create a comment with diff info for a commit on .ipynb files'
+
 inputs:
   token:
     description: 'GitHub authentication token to access the repo'
@@ -7,6 +8,7 @@ inputs:
   repository:
     description: 'Name of repo where to print jupydiff changes'
     default: ${{ github.repository }}
+    
 runs:
   using: 'docker'
   image: 'Dockerfile'
