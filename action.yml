@@ -2,11 +2,11 @@ name: 'jupydiff'
 description: 'Create a comment with diff info for a commit on .ipynb files'
 inputs:
   token:
-    description: 'The GitHub authentication token'
+    description: 'The GitHub authentication token' #
     default: ${{ github.token }}
-#  repository:
-#    description: 'The full name of the target repository.'
-#    default: ${{ github.repository }}
+  repository:
+    description: 'The full name of the target repository.'
+    default: ${{ github.repository }}
 runs:
   using: 'docker'
   image: 'Dockerfile'
