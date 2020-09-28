@@ -57,4 +57,4 @@ Important notes:
 **jupydiff** is licensed under the [MIT license](LICENSE).
 
 ## Contributors
-**jupydiff** has been developed and used by data scientists and engineers at [Faethm AI](https://faethm.ai). The original project was authored by [Michael Thornill](https://github.com/MikhailTH) and [Blair Hudson](https://github.com/blairhudson).
+**jupydiff** has been developed and used by data scientists and engineers at [Faethm AI](https://faethm.ai). The original project was authored by [Mikhail Thornill](https://github.com/MikhailTH) and [Blair Hudson](https://github.com/blairhudson).
