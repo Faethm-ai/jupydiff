@@ -21,4 +21,5 @@ COPY package.json /
 RUN npm install
 
 COPY comment.js /
+RUN chmod +x / comment.js 
 ENTRYPOINT ["/entrypoint.sh"]
