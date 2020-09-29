@@ -10,8 +10,8 @@
 </div>
 
 ## Table of contents
-* [Why use jupydiff](#Why_use_jupydiff)
-* [How to use jupydiff](#How_to_use_jupydiff)
+* [Why use jupydiff](#Why-use-jupydiff)
+* [How to use jupydiff](#How-to-use-jupydiff)
 * [Dependencies](#Dependencies)
 * [License](#License)
 * [Contributors](#Contributors)
