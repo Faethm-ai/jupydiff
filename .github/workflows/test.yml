@@ -1,0 +1,45 @@
+name: jupydiff-test
+on:
+ pull_request:
+   types:
+       - opened
+       - synchronize
+jobs:
+  test:
+    name: jupydiff
+    runs-on: ubuntu-latest               
+    steps:
+        - uses: actions/checkout@master
+          with:
+            fetch-depth: 2
+        
+        - name: Run
+          run: |
+            rm tests/example.ipynb
+            mv tests/example-changes.ipynb tests/example.ipynb
+            git config --global user.email "test@example.com"
+            git config --global user.name "Test Example"
+            git add tests/test.ipynb
+            git commit -am "test commit"
+        - name: jupydiff
+          uses: ./
+
+        - name: Display Changes in Commit Comment
+          uses: actions/github-script@v1
+          with:
+            github-token: ${{secrets.GITHUB_TOKEN}}
+            script: |
+              const fs = require('fs');
+              function getSha() {
+                if (context.eventName && context.eventName == "pull_request") {
+                  return context.payload.pull_request.head.sha;
+                } else {
+                  return context.sha;
+                }
+              }
+              await github.repos.createCommitComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                commit_sha: sha,
+                body: "Dear contributor please ensure diff commit comment is displaying desired output"
+              });
