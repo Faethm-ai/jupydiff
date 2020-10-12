@@ -40,6 +40,6 @@ jobs:
               await github.repos.createCommitComment({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                commit_sha: sha,
-                body: "Dear contributor please ensure diff commit comment is displaying desired output"
+                commit_sha: getSha(),
+                body: "Please ensure the accompanying comment is displaying desired output"
               });
