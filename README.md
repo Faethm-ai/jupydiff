@@ -22,16 +22,12 @@
 ## How to use jupydiff
 **jupydiff** is a GitHub action. This means it can be used in any GitHub repostitory (public or private) by configuring a [GitHub Action workflow](https://docs.github.com/en/free-pro-team@latest/actions/reference/workflow-syntax-for-github-actions) in your repository.
 
-See below for an example workflow that runs **jupydiff** on any commit or pull request made to master.
+See below for an example workflow that runs **jupydiff** on any commit or pull request made to the repository.
 
 ```yaml
 name: jupydiff
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [ push, pull_request ]
 
 jobs:
   build:
