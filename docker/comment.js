@@ -30,7 +30,7 @@ async function run(data) {
   }); 
 }
 
-fs.readFile('output.txt', function read(err, data) {
+fs.readFile('/output/output.txt', function read(err, data) {
    if (err) {
      throw err;
    }

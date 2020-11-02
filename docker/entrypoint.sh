@@ -4,4 +4,4 @@
 nbdime diff --no-color -s HEAD^ HEAD >> /output/output.txt
 
 # write a comment to github (run comment.js)
-cd /output/ && npm run start
+cd / && npm run start 
