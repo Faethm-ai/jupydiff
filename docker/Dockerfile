@@ -23,4 +23,7 @@ RUN npm install
 COPY comment.js /
 RUN chmod +x /comment.js 
 
+RUN adduser -u 1000 user
+USER user
+
 ENTRYPOINT ["/entrypoint.sh"]
