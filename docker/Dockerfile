@@ -10,7 +10,7 @@ RUN apt-get update && apt-get install -y git
 
 # install node and npm
 RUN apt-get update && apt-get -y install nodejs npm
-RUN npm install npm@latest -g
+RUN npm install npm@8 -g
 
 # Code file to execute when the docker container starts up (`entrypoint.sh`)
 COPY entrypoint.sh /
