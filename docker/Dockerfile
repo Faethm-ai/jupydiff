@@ -18,7 +18,7 @@ RUN chmod +x /entrypoint.sh
 
 # install node deps
 COPY package.json /
-RUN npm install
+RUN npm install -g npm@8
 
 COPY comment.js /
 RUN chmod +x /comment.js 
