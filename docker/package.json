@@ -3,7 +3,7 @@
   "main": "comment.js",
   "scripts" : { "start" : "node comment.js" },
   "dependencies": {
-    "@actions/core": "1.9.1",
+    "@actions/core": "1.10.0",
     "@actions/github": "3.0.0"
   }
 }
