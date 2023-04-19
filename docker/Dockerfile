@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM python:3.8
+FROM python:3.10.10-slim
 
 WORKDIR  /
 # install nbdime
